@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>💖 Valentine?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Itim&display=swap" rel="stylesheet">
+    
     <style>
         body {
             margin: 0;
@@ -10,7 +12,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Fontul principal stil "Itim" */
+            font-family: 'Itim', cursive;
             overflow: hidden;
 
             /* Gradient simplu, elegant */
@@ -42,7 +45,9 @@
             padding: 12px;
             text-align: center;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 16px;
+            /* Font accentuat pentru titlu */
+            font-family: 'Cherry Bomb One', cursive;
         }
 
         .content {
@@ -52,8 +57,10 @@
 
         .content h2 {
             margin-top: 0;
-            font-size: 22px;
+            font-size: 26px;
             color: #c9184a;
+            /* Font accentuat pentru întrebare */
+            font-family: 'Cherry Bomb One', cursive;
         }
 
         .buttons {
@@ -68,8 +75,10 @@
             border: none;
             border-radius: 15px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
+            /* Aplicăm fontul Itim și pe butoane */
+            font-family: 'Itim', cursive;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 
@@ -111,8 +120,8 @@
 <script>
     function celebrate() {
         document.getElementById('main-content').innerHTML = `
-            <h2 style="font-size: 28px;">YAAAY!!! 🥰💘</h2>
-            <p>Te iubesc! Can't wait 💖</p>
+            <h2 style="font-family: 'Cherry Bomb One', cursive; font-size: 32px;">YAAAY!!! 🥰💘</h2>
+            <p style="font-size: 20px;">Te iubesc! Can't wait 💖</p>
             <p style="font-size: 40px;">💞💞💞</p>
         `;
         confetti();
