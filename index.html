@@ -12,46 +12,28 @@
             justify-content: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
-            position: relative;
-            /* Fundal Heart Aura roz intens */
-            background: radial-gradient(circle at center, #ff85a2 0%, #ffb3c1 20%, #ff85a2 40%, #ffb3c1 60%, #ff85a2 80%, #ffb3c1 100%);
+
+            /* Gradient simplu, elegant */
+            background: linear-gradient(120deg, #ff758f, #ffb3c1, #ff758f);
             background-size: 200% 200%;
-            animation: pulseAura 5s ease infinite;
+            animation: slowGradient 15s ease infinite;
         }
 
-        /* Animație subtilă pentru fundal */
-        @keyframes pulseAura {
-            0% { background-size: 100% 100%; }
-            50% { background-size: 150% 150%; }
-            100% { background-size: 100% 100%; }
-        }
-
-        /* Siluete de pisici pe fundal - umbre colorate */
-        .cat-silhouette {
-            position: absolute;
-            opacity: 0.2;
-            fill: #d63384;
-            z-index: 0;
-            pointer-events: none;
-            animation: floatCats 15s linear infinite;
-        }
-
-        @keyframes floatCats {
-            from { transform: translateY(110vh) rotate(0deg); }
-            to { transform: translateY(-20vh) rotate(360deg); }
+        /* Mișcare foarte subtilă */
+        @keyframes slowGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .window {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(6px);
             width: 320px;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
             overflow: hidden;
             animation: pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            z-index: 10;
-            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         .title-bar {
@@ -90,21 +72,15 @@
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
 
-        button:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 6px 15px rgba(255, 77, 109, 0.3);
-        }
-
-        .yes {
+            /* aceeași culoare pentru ambele */
             background: #ff4d6d;
             color: white;
         }
 
-        .yes-alt {
-            background: #ff758f;
-            color: white;
+        button:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 15px rgba(255, 77, 109, 0.35);
         }
 
         @keyframes pop {
@@ -119,8 +95,6 @@
 </head>
 <body>
 
-<div id="cats-container"></div>
-
 <div class="window">
     <div class="title-bar">⚠️ Atenție, întrebare serioasă!</div>
     <div class="content" id="main-content">
@@ -128,40 +102,24 @@
         <p>Promit să ne distrăm! 🥰</p>
 
         <div class="buttons">
-            <button class="yes" onclick="celebrate()">DAAAAA! 🎀</button>
-            <button class="yes-alt" onclick="celebrate()">Desigur, iubita mea! 🌹</button>
+            <button onclick="celebrate()">DAAAAA! 🎀</button>
+            <button onclick="celebrate()">Desigur, iubita mea! 🌹</button>
         </div>
     </div>
 </div>
 
 <script>
-    // SVG Siluetă Pisică
-    const catSVG = `<svg viewBox="0 0 24 24" width="50" height="50"><path d="M12,8C13,8 14,8.5 15,9C16.1,9.6 17,9.3 17,9.3C17,9.3 16.7,10.2 16.2,11C16.8,11.5 17,12.2 17,13C17,15.2 15.2,17 13,17C12.4,17 11.8,16.8 11.3,16.5C10.5,17.4 9.3,18 8,18C5.8,18 4,16.2 4,14C4,12.8 4.5,11.7 5.3,11C4.8,10.2 4.5,9.3 4.5,9.3C4.5,9.3 5.4,9.6 6.5,9C7.5,8.5 8.5,8 9.5,8C10,8 11,8.5 12,8M12,11.5C11.4,11.5 11,11.9 11,12.5C11,13.1 11.4,13.5 12,13.5C12.6,13.5 13,13.1 13,12.5C13,11.9 12.6,11.5 12,11.5Z"/></svg>`;
-
-    function createCats() {
-        const container = document.getElementById('cats-container');
-        for (let i = 0; i < 6; i++) {
-            const div = document.createElement('div');
-            div.className = 'cat-silhouette';
-            div.innerHTML = catSVG;
-            div.style.left = Math.random() * 90 + 'vw';
-            div.style.animationDelay = Math.random() * 10 + 's';
-            div.style.animationDuration = (Math.random() * 5 + 10) + 's';
-            container.appendChild(div);
-        }
-    }
-
     function celebrate() {
         document.getElementById('main-content').innerHTML = `
             <h2 style="font-size: 28px;">YAAAY!!! 🥰💘</h2>
-            <p> Te iubesc! Can't wait 💖</p>
-            <p style="font-size: 40px;">🐱🎀🐱</p>
+            <p>Te iubesc! Can't wait 💖</p>
+            <p style="font-size: 40px;">💞💞💞</p>
         `;
         confetti();
     }
 
     function confetti() {
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 80; i++) {
             const heart = document.createElement("div");
             heart.innerHTML = "💗";
             heart.style.position = "fixed";
@@ -174,8 +132,6 @@
             setTimeout(() => heart.remove(), 3000);
         }
     }
-
-    createCats();
 </script>
 
 </body>
